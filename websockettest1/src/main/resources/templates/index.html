@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://192.168.25.134/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Welcome to nginx!</title>
+    <style>
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+    </style>
+    <input type="hidden" id="_w_simile" data-inspect-config="3">
+    <script type="text/javascript"
+            src="chrome-extension://dbjbempljhcmhlfpfacalomonjpalpko/scripts/inspector.js"></script>
+</head>
+<body>
+<div data-v-32478853="" class="odm_extension image_downloader_wrapper"><!----></div>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+    working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+    <a href="http://nginx.org/">nginx.org</a>.<br>
+    Commercial support is available at
+    <a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+
+
+<script>
+    var websocket = null;
+    if ('WebSocket' in window) {
+        websocket = new WebSocket('ws://localhost:8080/webSocket');
+    } else {
+        alert('browser unsupport');
+    }
+
+    websocket.onopen = function (event) {
+        console.log('link start');
+    }
+
+    websocket.onclose = function (event) {
+        console.log('link close');
+    }
+
+    websocket.onmessage = function (event) {
+        console.log('get message :' + event.data);
+        alert('new id ' + event.data);
+    }
+
+    websocket.onerror = function (event) {
+        alert('socket error happen');
+    }
+
+    websocket.onbeforeunload = function (event) {
+        websocket.close();
+    }
+
+</script>
+
+
+</body>
+</html>
